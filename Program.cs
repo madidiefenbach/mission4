@@ -4,6 +4,8 @@
 // section 3 group 13
 //Madison Diefenbach
 // section 3 group 13
+using System.Linq.Expressions;
+
 namespace mission4;
 
 public class Program
@@ -16,13 +18,9 @@ public class Program
         int choice;
         int choice2;
         bool gameOver = false;
+        int winner = 0;
 
         Console.WriteLine("Welcome to Tic-Tac-Toe!");
-
-        for (int spot = 0; spot < boardGame.Length; spot++)
-        {
-            boardGame[spot] = spot;
-        }
 
         while (!gameOver)
         {
@@ -34,9 +32,24 @@ public class Program
 
             ge.printBoard(boardGame);
 
-            Console.WriteLine("Player 2: Choose a spot (0-8)");
+           winner = ge.winner(boardGame);
+            if (winner == 1)
+            {
+                Console.WriteLine("Player 1 wins!");
+                gameOver = true;
+            }
+
+                Console.WriteLine("Player 2: Choose a spot (0-8)");
             choice2 = int.Parse(Console.ReadLine());
             boardGame[choice2] = 2;
+            ge.printBoard(boardGame);
+            winner = ge.winner(boardGame);
+            if (winner == 1)
+            {
+                Console.WriteLine("Player 2 wins!");
+                gameOver = true;
+            }
+
         }
     }
 }
