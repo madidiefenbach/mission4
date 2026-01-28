@@ -26,9 +26,9 @@ public class Program
         {
             ge.printBoard(boardGame);
 
-            Console.WriteLine("Player 1: Choose a spot (0-8)");
+            Console.WriteLine("Player 1: Choose a spot (1-9)");
             choice = int.Parse(Console.ReadLine());
-            boardGame[choice] = 1;
+            boardGame[choice-1] = 1;
 
             ge.printBoard(boardGame);
 
@@ -37,16 +37,29 @@ public class Program
             {
                 Console.WriteLine("Player 1 wins!");
                 gameOver = true;
+                break;
+            }
+            else if (winner == 2)
+            {
+                Console.WriteLine("It's a draw!");
+                gameOver = true;
+                break;
             }
 
-                Console.WriteLine("Player 2: Choose a spot (0-8)");
+                Console.WriteLine("Player 2: Choose a spot (1-9)");
             choice2 = int.Parse(Console.ReadLine());
-            boardGame[choice2] = 2;
+            boardGame[choice2-1] = 2;
             ge.printBoard(boardGame);
+
             winner = ge.winner(boardGame);
             if (winner == 1)
             {
                 Console.WriteLine("Player 2 wins!");
+                gameOver = true;
+            }
+            else if (winner == 2)
+            {
+                Console.WriteLine("It's a draw!");
                 gameOver = true;
             }
 
