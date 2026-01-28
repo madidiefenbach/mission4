@@ -37,11 +37,13 @@ public class Program
             {
                 Console.WriteLine("Player 1 wins!");
                 gameOver = true;
+                break;
             }
             else if (winner == 2)
             {
                 Console.WriteLine("It's a draw!");
                 gameOver = true;
+                break;
             }
 
                 Console.WriteLine("Player 2: Choose a spot (0-8)");
