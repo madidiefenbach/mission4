@@ -4,8 +4,6 @@
 // section 3 group 13
 //Madison Diefenbach
 // section 3 group 13
-using System.Linq.Expressions;
-
 namespace mission4;
 
 public class Program
@@ -15,7 +13,6 @@ public class Program
         gameEngine ge = new gameEngine();
 
         int[] boardGame = new int[9];
-        int[] checkBoard = new int[9];
         int choice;
         int choice2;
         bool gameOver = false;
