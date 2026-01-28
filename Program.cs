@@ -27,10 +27,16 @@ while (!gameOver)
     ge.printBoard(boardGame);
     Console.WriteLine("Player 1: Choose a spot (0-8");
     choice = Console.ReadLine();
-    boardGame[choice] = 1;
+    if (boardGame[choice] != 1 && boardGame[choice] != 2)
+    {
+        boardGame[choice] = 1;
+    }
 
     ge.printBoard(boardGame);
     Console.WriteLine("Player 2: Choose a spot (0-8");
     choice2 = Console.ReadLine();
-    boardGame[choice2] = 2;
+    if (boardGame[choice2] != 1 && boardGame[choice2] != 2)
+    {
+        boardGame[choice2] = 2;
+    }
 }
