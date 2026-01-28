@@ -21,11 +21,11 @@ while (!gameOver)
 {
     ge.printBoard(boardGame);
     Console.WriteLine("Player 1: Choose a spot (0-8");
-    choice = int.Parse(Console.ReadLine());
+    choice = Console.ReadLine();
     boardGame[choice] = 1;
 
     ge.printBoard(boardGame);
     Console.WriteLine("Player 2: Choose a spot (0-8");
-    choice2 = int.Parse(Console.ReadLine());
+    choice2 = Console.ReadLine();
     boardGame[choice2] = 2;
 }
