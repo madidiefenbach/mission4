@@ -15,6 +15,7 @@ public class Program
         gameEngine ge = new gameEngine();
 
         int[] boardGame = new int[9];
+        int[] checkBoard = new int[9];
         int choice;
         int choice2;
         bool gameOver = false;
@@ -28,6 +29,12 @@ public class Program
 
             Console.WriteLine("Player 1: Choose a spot (1-9)");
             choice = int.Parse(Console.ReadLine());
+            while (choice < 1 || choice > 9 || boardGame[choice-1] == 1 || boardGame[choice-1] == 2)
+            {
+                Console.WriteLine("Invalid spot! Please choose a spot that is not already taken.");
+                Console.WriteLine("Player 1: Choose a spot (1-9)");
+                choice = int.Parse(Console.ReadLine());
+            }
             boardGame[choice-1] = 1;
 
             ge.printBoard(boardGame);
@@ -44,9 +51,16 @@ public class Program
                 gameOver = true;
             }
 
-                Console.WriteLine("Player 2: Choose a spot (1-9)");
+            Console.WriteLine("Player 2: Choose a spot (1-9)");
             choice2 = int.Parse(Console.ReadLine());
+            while (choice2 < 1 || choice2 > 9 || boardGame[choice2-1] == 1 || boardGame[choice2-1] == 2)
+            {
+                Console.WriteLine("Invalid spot! Please choose a spot that is not already taken.");
+                Console.WriteLine("Player 2: Choose a spot (1-9)");
+                choice2 = int.Parse(Console.ReadLine());
+            }
             boardGame[choice2-1] = 2;
+
             ge.printBoard(boardGame);
 
             winner = ge.winner(boardGame);
