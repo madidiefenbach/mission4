@@ -2,6 +2,7 @@
 // section 3 group 13
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
+using mission4;
 gameEngine ge = new gameEngine();
 
 
@@ -14,19 +15,19 @@ string currentPlayer = "X";
 Console.WriteLine("Welcome to Tic-Tac-Toe!");
 for (int spot = 0; spot < boardGame.Length; spot++)
 {
-    boardGame[spot] = choice.ToString();
+    boardGame[spot] = 0;
 }
 
 Console.WriteLine("Player 1: Choose a spot (0-8");
-choice = Console.ReadLine();
+choice = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine("Player 2: Choose a spot (0-8");
-choice2 = Console.ReadLine();
+choice2 = int.Parse(Console.ReadLine() ?? "0");
 
 while (!gameOver)
 {
     ge.printBoard(boardGame);
     Console.WriteLine("Player 1: Choose a spot (0-8");
-    choice = Console.ReadLine();
+    choice = int.Parse(Console.ReadLine() ?? "0");
     if (boardGame[choice] != 1 && boardGame[choice] != 2)
     {
         boardGame[choice] = 1;
@@ -34,9 +35,10 @@ while (!gameOver)
 
     ge.printBoard(boardGame);
     Console.WriteLine("Player 2: Choose a spot (0-8");
-    choice2 = Console.ReadLine();
+    choice2 = int.Parse(Console.ReadLine() ?? "0");
     if (boardGame[choice2] != 1 && boardGame[choice2] != 2)
     {
         boardGame[choice2] = 2;
     }
+    
 }
