@@ -28,4 +28,53 @@ public class gameEngine
         Console.WriteLine();
     }
     
+    // Check the current state of the game
+    // Returns:
+    // 0 = game ongoing
+    // 1 = someone won
+    // 2 = draw
+    public int winner(int[] board)
+    {
+        // All winning combinations
+        int[,] winningCombos =
+        {
+            {0, 1, 2},
+            {3, 4, 5},
+            {6, 7, 8},
+            {0, 3, 6},
+            {1, 4, 7},
+            {2, 5, 8},
+            {0, 4, 8},
+            {2, 4, 6}
+        };
+
+        // Check if someone won
+        for (int i = 0; i < winningCombos.GetLength(0); i++)
+        {
+            int a = winningCombos[i, 0];
+            int b = winningCombos[i, 1];
+            int c = winningCombos[i, 2];
+
+            if (board[a] != 0 && board[a] == board[b] && board[b] == board[c])
+            {
+                return 1; // someone won
+            }
+        }
+
+        // Check for draw
+        bool draw = true;
+        for (int i = 0; i < board.Length; i++)
+        {
+            if (board[i] == 0)
+            {
+                draw = false;
+                break;
+            }
+        }
+
+        if (draw) return 2; // draw
+
+        return 0; // game ongoing
+    }
 }
+    
