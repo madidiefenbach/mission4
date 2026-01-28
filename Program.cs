@@ -38,15 +38,26 @@ public class Program
                 Console.WriteLine("Player 1 wins!");
                 gameOver = true;
             }
+            else if (winner == 2)
+            {
+                Console.WriteLine("It's a draw!");
+                gameOver = true;
+            }
 
                 Console.WriteLine("Player 2: Choose a spot (1-9)");
             choice2 = int.Parse(Console.ReadLine());
             boardGame[choice2-1] = 2;
             ge.printBoard(boardGame);
+
             winner = ge.winner(boardGame);
             if (winner == 1)
             {
                 Console.WriteLine("Player 2 wins!");
+                gameOver = true;
+            }
+            else if (winner == 2)
+            {
+                Console.WriteLine("It's a draw!");
                 gameOver = true;
             }
 
